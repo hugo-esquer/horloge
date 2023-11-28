@@ -3,11 +3,12 @@ import time
 def afficher_heure(t):
     global heures
     global minutes
-    global sescondes
+    global secondes
     heures = t[0]
     minutes = t[1]
     secondes = t[2]
 
+#regarder .extend pour ajouter éléments a une liste
 def alarme(t):
     global heure_actuelle
     liste_alarme=[]
@@ -47,5 +48,10 @@ while True:
     else:
         print(f"{heures:02d}:{minutes:02d}:{secondes:02d}", end="\r")
         alarme(tuple_alarme)
+    if #touche P préssé:
+        while true:
+            if # touche r préssé:
+                break
     time.sleep(1)
+    
 
