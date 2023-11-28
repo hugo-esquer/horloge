@@ -1,12 +1,12 @@
 import time
 
 def afficher_heure(t):
-    global h
-    global m 
-    global s
-    h = t[0]
-    m = t[1]
-    s = t[2]
+    global heures
+    global minutes
+    global sescondes
+    heures = t[0]
+    minutes = t[1]
+    secondes = t[2]
 
 def alarme(t):
     global heure_actuelle
@@ -18,26 +18,34 @@ def alarme(t):
 
 
 
-h=0
-m=0
-s=0
+heures=0
+minutes=0
+secondes=0
 tuple_heure = (15, 40, 30)
 tuple_alarme = (15, 40, 35)
+affichage = True
 
 
 afficher_heure(tuple_heure)
 while True:
-    s+=1
-    if s > 59:
-        s=0
-        m+=1
-    if m > 59:
-        m=0
-        h+=1
-    if h > 24:
-        h = 0
-    heure_actuelle = [h, m, s]
-    print(f"{h:02d}:{m:02d}:{s:02d}", end="\r")
-    alarme(tuple_alarme)
+    secondes+=1
+    if secondes > 59:
+        secondes=0
+        minutes+=1
+    if minutes > 59:
+        minutes=0
+        heures+=1
+    if heures > 24:
+        heures = 0
+    heure_actuelle = [heures, minutes, secondes]
+    if affichage:
+        if heures < 12:
+            print(f"{heures:02d}:{minutes:02d}:{secondes:02d} AM", end="\r")
+        else:
+            print(f"{heures%12:02d}:{minutes:02d}:{secondes:02d} PM", end="\r")
+        alarme(tuple_alarme)
+    else:
+        print(f"{heures:02d}:{minutes:02d}:{secondes:02d}", end="\r")
+        alarme(tuple_alarme)
     time.sleep(1)
 
