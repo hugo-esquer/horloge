@@ -20,7 +20,7 @@ minutes=0
 secondes=0
 print("pour mettre l'horloge en pause appuyez sur espace, pour la relancer appuyez sur 'p'")
 tuple_heure = tuple(map(int, input("entrer une heure: heures, minutes, secondes ").split())) # convertir les inputs en int avec la fonction map et int, puis les convertir en tuple
-tuple_alarme = tuple(map(int, input("entrer une heure pour l'alarme ").split()))             # syntaxe de map : map(fonction, iterable) applique la fonction a tout les iterables
+tuple_alarme = tuple(map(int, input("entrer une heure pour l'alarme ").split()))             # syntaxe de map : map(fonction, iterable) applique la fonction à tout les iterables
 affichage_12 = False
 
 afficher_heure(tuple_heure)
@@ -44,7 +44,7 @@ while True:
     else:
         print(f"{heures:02d}:{minutes:02d}:{secondes:02d}", end="\r")
         alarme(tuple_alarme)
-    if keyboard.is_pressed(" "):
-        keyboard.wait("p")
+    if keyboard.is_pressed(" "):    # verifie chaque seconde si espace est pressé ou non
+        keyboard.wait("p")          # attend juqu'a ce que p soit pressé pour continuer la boucle
     time.sleep(1)
 
