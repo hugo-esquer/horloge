@@ -45,8 +45,6 @@ while True:
         print(f"{heures:02d}:{minutes:02d}:{secondes:02d}", end="\r")
         alarme(tuple_alarme)
     if keyboard.is_pressed(" "):
-        while True:
-            if keyboard.is_pressed("p"):
-                break
+        keyboard.wait("p")
     time.sleep(1)
 
