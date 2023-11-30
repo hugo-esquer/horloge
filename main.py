@@ -15,12 +15,24 @@ def alarme(t):
     if liste_alarme == heure_actuelle:
         print("Il est l'or mon seignor!")
 
+def mode_affichage(affichage):
+    if affichage:
+        if heures < 12:
+            print(f"{heures:02d}:{minutes:02d}:{secondes:02d} AM", end="\r")
+        else:
+            print(f"{heures%12:02d}:{minutes:02d}:{secondes:02d} PM", end="\r")
+        alarme(tuple_alarme)
+    else:
+        print(f"{heures:02d}:{minutes:02d}:{secondes:02d}", end="\r")
+        alarme(tuple_alarme)
+
+
 while True:                                                                                          # boucle pour continuer le programme si l'input n'est pas bon
 
     heures=0
     minutes=0
     secondes=0
-    affichage_12 = False
+    affichage_12 = True
 
     print("pour mettre l'horloge en pause appuyez sur espace, pour la relancer appuyez sur 'p'")
     try:
@@ -42,15 +54,7 @@ while True:                                                                     
             if heures > 23:
                 heures = 0
             heure_actuelle = [heures, minutes, secondes]
-            if affichage_12:
-                if heures < 12:
-                    print(f"{heures:02d}:{minutes:02d}:{secondes:02d} AM", end="\r")
-                else:
-                    print(f"{heures%12:02d}:{minutes:02d}:{secondes:02d} PM", end="\r")
-                alarme(tuple_alarme)
-            else:
-                print(f"{heures:02d}:{minutes:02d}:{secondes:02d}", end="\r")
-                alarme(tuple_alarme)
+            mode_affichage(affichage_12)
             if keyboard.is_pressed(" "):            # verifie chaque seconde si espace est pressé ou non
                 keyboard.wait("p")                  # attend juqu'a ce que p soit pressé pour continuer la boucle
             time.sleep(1)
