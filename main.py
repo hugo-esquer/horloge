@@ -24,7 +24,7 @@ while True:                                                                     
 
     print("pour mettre l'horloge en pause appuyez sur espace, pour la relancer appuyez sur 'p'")
     try:
-        tuple_heure = tuple(map(int, input("entrer une heure: heures, minutes, secondes ").split())) # convertir les inputs en int avec la fonction map et int, puis les convertir en tuple
+        tuple_heure = tuple(map(int, input("entrer une heure: heures minutes secondes ").split())) # convertir les inputs en int avec la fonction map et int, puis les convertir en tuple
         tuple_alarme = tuple(map(int, input("entrer une heure pour l'alarme ").split()))             # syntaxe de map : map(fonction, iterable) applique la fonction à tout les iterables
     except:
         tuple_heure =()                                                                              # condition pour ne pas lancer l'horloge
